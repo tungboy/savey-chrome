@@ -32,6 +32,7 @@ if (priceNode) {
 
 async function saveImpulse() {
   console.log("data: ", data);
+  // TODO: Figure out how to grab userID
   const rawResponse = await fetch('http://localhost:3000/users/3/impulses', {
     method: 'POST',
     headers: {
