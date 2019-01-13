@@ -6,8 +6,15 @@ let data = {
 const stacks = Array.from(document.getElementsByClassName("a-button-stack"));
 if (stacks.length > 0) {
   const buttons = stacks.filter((stack) => stack.innerText === "\nBuy now with 1-Click®\n" || stack.innerText === "\nAdd to Cart\n")
-  buttons[0].innerHTML = "<a onclick='saveImpulse()'>Control My Impulse</a>";
-  buttons[1].remove();
+  if (buttons.length > 0) {
+    buttons.map((button, index) => {
+      if (index > 0) {
+        button.remove();
+      } else {
+        buttons[0].innerHTML = "<a onclick='saveImpulse()'>Control My Impulse</a>";
+      }
+    })
+  }  
 }
 
 const titleNode = document.getElementById("productTitle");
