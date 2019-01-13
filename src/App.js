@@ -1,8 +1,14 @@
+/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  logTab = () => {
+    chrome.tabs.query({active: true, currentWindow: true}, (tab) => console.log(tab))
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,6 +25,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <button onClick={this.logTab}>Click</button>
         </header>
       </div>
     );
